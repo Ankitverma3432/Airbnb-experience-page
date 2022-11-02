@@ -1,0 +1,28 @@
+import React from "react"
+import Navbar from "./components/Navbar"
+import Hero from "./components/Hero"
+import Card from "./components/Card"
+import data from "./components/data"
+import "./App.css"
+
+export default function App() {
+  const cards = data.map(item => {
+    return (
+      <Card
+        key={item.id}
+        {...item}                   // we have passed props using Spread operator
+
+      />
+    )
+  })
+
+  return (
+    <div>
+      <Navbar />
+      <Hero />
+      <section className="cards-list">
+        {cards}
+      </section>
+    </div>
+  )
+}
